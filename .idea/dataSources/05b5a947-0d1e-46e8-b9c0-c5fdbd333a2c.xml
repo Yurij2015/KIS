@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="corporatesys@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="corporatesys">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <table id="7" parent="2" name="client"/>
+    <table id="8" parent="2" name="course"/>
+    <table id="9" parent="2" name="document"/>
+    <table id="10" parent="2" name="employee"/>
+    <table id="11" parent="2" name="employee_has_unit"/>
+    <table id="12" parent="2" name="log"/>
+    <table id="13" parent="2" name="order"/>
+    <table id="14" parent="2" name="product"/>
+    <table id="15" parent="2" name="regindayforemployee"/>
+    <table id="16" parent="2" name="regoncourse"/>
+    <table id="17" parent="2" name="role"/>
+    <table id="18" parent="2" name="service"/>
+    <table id="19" parent="2" name="unit"/>
+    <table id="20" parent="2" name="user"/>
+    <column id="21" parent="7" name="idclient">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="22" parent="7" name="clientname">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="23" parent="7" name="clientemail">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="24" parent="7" name="clientphone">
+      <Position>4</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="25" parent="7" name="timestamp">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="26" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idclient</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="27" parent="8" name="idcourse">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="8" name="coursename">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="29" parent="8" name="courseduration">
+      <Position>3</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="30" parent="8" name="courseinfo">
+      <Position>4</Position>
+      <DataType>longtext|0</DataType>
+    </column>
+    <column id="31" parent="8" name="coursecost">
+      <Position>5</Position>
+      <DataType>varchar(16)|0</DataType>
+    </column>
+    <key id="32" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idcourse</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="33" parent="9" name="iddocument">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="34" parent="9" name="name">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="35" parent="9" name="doccontent">
+      <Position>3</Position>
+      <DataType>mediumtext|0</DataType>
+    </column>
+    <column id="36" parent="9" name="link">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="37" parent="9" name="employee_idemployee">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="9" name="timestamp">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="39" parent="9" name="fk_document_employee1_idx">
+      <ColNames>employee_idemployee</ColNames>
+    </index>
+    <key id="40" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>iddocument</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="41" parent="9" name="fk_document_employee1">
+      <ColNames>employee_idemployee</ColNames>
+      <RefSchemaName>corporatesys</RefSchemaName>
+      <RefTableName>employee</RefTableName>
+      <RefColNames>idemployee</RefColNames>
+    </foreign-key>
+    <column id="42" parent="10" name="idemployee">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="43" parent="10" name="name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="44" parent="10" name="secondname">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="45" parent="10" name="idunit">
+      <Position>4</Position>
+      <DataType>tinyint(2)|0</DataType>
+    </column>
+    <column id="46" parent="10" name="position">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="47" parent="10" name="timestamp">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="48" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idemployee</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="11" name="employee_idemployee">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="11" name="unit_idunit">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="51" parent="11" name="fk_employee_has_unit_employee1_idx">
+      <ColNames>employee_idemployee</ColNames>
+    </index>
+    <index id="52" parent="11" name="fk_employee_has_unit_unit1_idx">
+      <ColNames>unit_idunit</ColNames>
+    </index>
+    <key id="53" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>employee_idemployee
+unit_idunit</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="54" parent="11" name="fk_employee_has_unit_employee1">
+      <ColNames>employee_idemployee</ColNames>
+      <RefSchemaName>corporatesys</RefSchemaName>
+      <RefTableName>employee</RefTableName>
+      <RefColNames>idemployee</RefColNames>
+    </foreign-key>
+    <foreign-key id="55" parent="11" name="fk_employee_has_unit_unit1">
+      <ColNames>unit_idunit</ColNames>
+      <RefSchemaName>corporatesys</RefSchemaName>
+      <RefTableName>unit</RefTableName>
+      <RefColNames>idunit</RefColNames>
+    </foreign-key>
+    <column id="56" parent="12" name="idlog">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="12" name="user_iduser">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="12" name="timestamp">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="59" parent="12" name="fk_log_user1_idx">
+      <ColNames>user_iduser</ColNames>
+    </index>
+    <key id="60" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idlog</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="61" parent="12" name="fk_log_user1">
+      <ColNames>user_iduser</ColNames>
+      <RefSchemaName>corporatesys</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>iduser</RefColNames>
+    </foreign-key>
+    <column id="62" parent="13" name="idorder">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="63" parent="13" name="ordernumber">
+      <Position>2</Position>
+      <DataType>varchar(7)|0</DataType>
+    </column>
+    <column id="64" parent="13" name="product">
+      <Position>3</Position>
+      <DataType>tinyint(3)|0</DataType>
+    </column>
+    <column id="65" parent="13" name="service">
+      <Position>4</Position>
+      <DataType>tinyint(3)|0</DataType>
+    </column>
+    <column id="66" parent="13" name="info">
+      <Position>5</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <column id="67" parent="13" name="idclient">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="68" parent="13" name="orderdate">
+      <Position>7</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="69" parent="13" name="client_idclient">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="13" name="product_idproduct">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="13" name="service_idproduct">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="72" parent="13" name="fk_order_client_idx">
+      <ColNames>client_idclient</ColNames>
+    </index>
+    <index id="73" parent="13" name="fk_order_product1_idx">
+      <ColNames>product_idproduct</ColNames>
+    </index>
+    <index id="74" parent="13" name="fk_order_service1_idx">
+      <ColNames>service_idproduct</ColNames>
+    </index>
+    <key id="75" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idorder</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="76" parent="13" name="fk_order_client">
+      <ColNames>client_idclient</ColNames>
+      <RefSchemaName>corporatesys</RefSchemaName>
+      <RefTableName>client</RefTableName>
+      <RefColNames>idclient</RefColNames>
+    </foreign-key>
+    <foreign-key id="77" parent="13" name="fk_order_product1">
+      <ColNames>product_idproduct</ColNames>
+      <RefSchemaName>corporatesys</RefSchemaName>
+      <RefTableName>product</RefTableName>
+      <RefColNames>idproduct</RefColNames>
+    </foreign-key>
+    <foreign-key id="78" parent="13" name="fk_order_service1">
+      <ColNames>service_idproduct</ColNames>
+      <RefSchemaName>corporatesys</RefSchemaName>
+      <RefTableName>service</RefTableName>
+      <RefColNames>idproduct</RefColNames>
+    </foreign-key>
+    <column id="79" parent="14" name="idproduct">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="80" parent="14" name="productname">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="81" parent="14" name="productamount">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="82" parent="14" name="productcost">
+      <Position>4</Position>
+      <DataType>varchar(5)|0</DataType>
+    </column>
+    <column id="83" parent="14" name="productinfo">
+      <Position>5</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <column id="84" parent="14" name="timestamp">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="85" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idproduct</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="86" parent="15" name="idregindayforemployee">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="87" parent="15" name="employee_idemployee">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="88" parent="15" name="timestamp">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="89" parent="15" name="fk_regindayforemployee_employee1_idx">
+      <ColNames>employee_idemployee</ColNames>
+    </index>
+    <key id="90" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idregindayforemployee</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="91" parent="15" name="fk_regindayforemployee_employee1">
+      <ColNames>employee_idemployee</ColNames>
+      <RefSchemaName>corporatesys</RefSchemaName>
+      <RefTableName>employee</RefTableName>
+      <RefColNames>idemployee</RefColNames>
+    </foreign-key>
+    <column id="92" parent="16" name="idregoncourse">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="93" parent="16" name="fio">
+      <Position>2</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="94" parent="16" name="passportdata">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="95" parent="16" name="course">
+      <Position>4</Position>
+      <DataType>tinyint(3)|0</DataType>
+    </column>
+    <key id="96" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idregoncourse</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="97" parent="17" name="idrole">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="98" parent="17" name="role">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <key id="99" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idrole</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="100" parent="18" name="idproduct">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="101" parent="18" name="servicename">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="102" parent="18" name="servicecost">
+      <Position>3</Position>
+      <DataType>varchar(5)|0</DataType>
+    </column>
+    <column id="103" parent="18" name="serviceinfo">
+      <Position>4</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <column id="104" parent="18" name="timestamp">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="105" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idproduct</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="106" parent="19" name="idunit">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="107" parent="19" name="unitname">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="108" parent="19" name="timestamp">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="109" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idunit</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="110" parent="20" name="iduser">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="111" parent="20" name="email">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="112" parent="20" name="username">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="113" parent="20" name="usersecondname">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="114" parent="20" name="userrole">
+      <Position>5</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="115" parent="20" name="password">
+      <Position>6</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="116" parent="20" name="role_idrole">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="117" parent="20" name="fk_user_role1_idx">
+      <ColNames>role_idrole</ColNames>
+    </index>
+    <key id="118" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>iduser</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="119" parent="20" name="fk_user_role1">
+      <ColNames>role_idrole</ColNames>
+      <RefSchemaName>corporatesys</RefSchemaName>
+      <RefTableName>role</RefTableName>
+      <RefColNames>idrole</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
